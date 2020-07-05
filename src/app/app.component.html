@@ -1,7 +1,23 @@
-<h1>{{title}}</h1>
-<nav>
-  <a routerLink="/dashboard">Dashboard</a>
-  <a routerLink="/heroes">Heroes</a>
+<nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a routerLink="/dashboard" class="navbar-item content is-marginless"><h3 class="is-marginless">{{title}}</h3></a>
+    <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navMenu"
+      [ngClass]="{'is-active' : isMenuOpen}" (click)="handleBurger()">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+  <div id="navMenu" class="navbar-menu"  [ngClass]="{'is-active' : isMenuOpen}">
+    <div class="navbar-start">
+      <a routerLink="/dashboard" (click)="isMenuOpen = false" class="navbar-item">Dashboard</a>
+      <a routerLink="/heroes" (click)="isMenuOpen = false" class="navbar-item">Heroes</a>
+    </div>
+  </div>
 </nav>
-<router-outlet></router-outlet>
-<app-messages></app-messages>
+<section class="section columns">
+  <div class="column">
+    <router-outlet></router-outlet>
+  </div>
+  <app-messages class="column is-one-third"></app-messages>
+</section>

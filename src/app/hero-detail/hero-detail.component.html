@@ -1,11 +1,38 @@
-<div *ngIf="hero">
-  <h2>{{hero.name | uppercase}} Details</h2>
-  <div><span>id: </span>{{hero.id}}</div>
-  <div>
-    <label>name:
-      <input [(ngModel)]="hero.name" placeholder="name"/>
-    </label>
+<div class="card" *ngIf="hero">
+  <header class="card-header">
+    <p class="card-header-title">
+      {{hero.name | uppercase}} Details
+    </p>
+  </header>
+  <div class="card-content">
+    <div class="field is-horizontal">
+      <div class="field-label is-normal">
+        <label class="label has-text-left">Hero ID</label>
+      </div>
+      <div class="field-body">
+        <div class="field">
+          <p class="control">
+            <input class="input is-static" [(ngModel)]="hero.id" readonly>
+          </p>
+        </div>
+      </div>
+    </div>
+    
+    <div class="field is-horizontal">
+      <div class="field-label is-normal">
+        <label class="label has-text-left">Name</label>
+      </div>
+      <div class="field-body">
+        <div class="field">
+          <p class="control">
+            <input class="input" [(ngModel)]="hero.name" placeholder="Name">
+          </p>
+        </div>
+      </div>
+    </div>
   </div>
-  <button (click)="goBack()">go back</button>
-  <button (click)="save()">save</button>
+  <footer class="card-footer">
+    <a (click)="goBack()" class="card-footer-item button">Back</a>
+    <a (click)="save()" class="card-footer-item button">Save</a>
+  </footer>
 </div>

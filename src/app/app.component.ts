@@ -7,4 +7,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Tour of Heroes';
+  isMenuOpen = false;
+  
+  public handleBurger() {
+    this.isMenuOpen = !this.isMenuOpen;
+  }
 }
+
